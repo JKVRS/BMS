@@ -1,0 +1,42 @@
+CITY :- id, name,
+
+-- 1:m (city & theaters)
+THEATERS :- id, name, address, cityId
+
+-- 1:m (theaters & audi)
+-- 1:m (audi & seats)
+-- 1:m (audi & show)
+AUDI :- id, name, theaterID
+
+FEATURE :- id, featureType
+
+m:1 ( seats & ticket)
+SEATS :- id, seatNumber, row, column, audiId, totalNumberSeats, ticketId
+
+SEAT_TYPE :- id, seatName, seatId
+
+SEAT_STATUS :- id, status
+-- mapping table
+SHOW_SEAT_TYPE :- id, seatTypeId, price,ShowId
+
+-- mapping table
+SHOW_SEATS :-id, seatStatusId,seaId, showId
+
+-- 1:m (show & showSeat)
+--m:1 ( show & movie)
+SHOWS :- id, audiId, showSeatId,showSeatId,startTime, endTime, languageId, featureId, movieId
+
+MOVIES :- id, name, actors, description, rating,languageId
+
+LANGUAGE_TYPE :-languageId, name,
+
+USERS :-id, name, age, email, password, phone
+
+TICKETS :-id, userId, amount, showId , ticketStatusId,
+
+TICKET_STATUS :-id , status
+
+PAYMENT :-id, ticketId, providerName, referenceId, time
+
+PAYMENT_TYPE :-id , type
+
