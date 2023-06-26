@@ -1,0 +1,134 @@
+Class Diagram :-
+
+class City
+{
+    int id;
+    String cityName;
+
+    List<Theater> theater;
+
+
+}
+class Theater{
+    int id;
+    String theaterName;
+    String address;  // it can we address class
+
+    List<Audi> audi;
+}
+
+class Audi
+{
+    int id;
+    String name;
+    List<Seat> seats;
+    List<Feature> feature
+    // List<Show> shows;  // herr we have 1:m relationship b/w Audi and Show
+}
+
+enums Feature{
+    2D,3D, DOLBY
+}
+
+class Seat{
+    int id;
+    String seatNumber;
+    int row;
+    int column;
+    int totalNumberSeat;
+    SeatType seatType;
+     //  price is an attribute of show and seat type
+    SeatStatus seatstatus;
+
+}
+// seat type will be extensible that's why we created a seat Type class.
+
+class SeatType{
+    int id;
+    String seatName;  //VIP, PREMIUM, NORMAL SILVER, GOLD
+
+}
+enum SeatStatus{
+    AVAILABLE, BOOKED, LOCKED, NA
+}
+Class ShowSeatType{
+    int id;
+    Show show;
+    SeatType seatType;
+    double price;
+
+//  These two class are mapping type class .
+}
+
+Class ShowSeat{
+   int id;
+   Show show;
+   Seat seat;
+   SeatStatus seat-status;
+}
+
+Class Show
+{
+   int id;
+  Audi audi;
+  Date startTime
+  Date endTime;
+//   int totalDuration         no need to put this we have already start time and end time
+   LanguageType language    // not able to think these points
+  List<Feature> feature;    // not able to think these points
+  Movie movie;
+
+}
+Class Movie{
+    int id;
+    String movieName
+    String actors;
+    String movieDescription;
+    Date releaseDate;
+    int rating;
+    List<LanguageType> language;
+
+
+}
+enum LanguageType{
+    HINDI, ENGLISH, TAMIL, TELUGU, PUNJABI;
+}
+
+Class User{
+  int id;
+  String name;
+  int age;
+  String email;
+  Long phone;
+  String password;
+
+}
+Class Ticket{
+    int id;
+    User user;
+
+    Date ticketBookingTime;
+    double amount;
+    Show show;
+    TicketStatus ticketStatus ;
+    List<Seat> seat;
+    // we have list of payment because on a single ticket payment can fail 2 times so we will show failed payment and success payment for that
+    // particular ticket
+    List<Payment> payment ;
+
+
+}
+enum TicketStatus{
+    BOOKED, CANCEL
+}
+Class Payment{
+    int id;
+    String provider // phonepe, paytm, Payu etc.
+    PaymentType paymentType;
+    String referenceId;
+    Date time;
+
+}
+enum PaymentType{
+    REFUND, SUCCESS
+}

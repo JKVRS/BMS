@@ -1,0 +1,14 @@
+Requirements :-
+
+System should support multiple cites
+In multiple cities multiple theaters should be present.
+In a theater multiple audi should be present.
+In a different audi can have different seat arrangements.
+seat can we multiple type.
+Price of seat will be varied base on seat and show timing.
+A user can choose max 10 at a time.
+A user can choose a seat at a time.
+After choosing the show in a theater movies details should be display.
+seat type should not be constant a new theater can name seat with their choice.
+A user can allow book seat till 30 min before the show start.
+payment should support by online only.
